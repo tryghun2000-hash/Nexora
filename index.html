@@ -12,74 +12,58 @@
 
 <header>
   <button id="menuBtn">☰</button>
-
   <h1>NEXORA</h1>
-
-  <div class="top-contact">
-    <span>📞 06 10 40 16 65</span>
-    <a class="call" href="tel:+33610401665">Appeler</a>
-  </div>
 </header>
 
 <nav id="sidebar">
-  <div class="sidebar-header">
-    <h2>NEXORA</h2>
-    <button id="closeBtn">←</button>
-  </div>
+  <button id="closeBtn">←</button>
 
   <a href="#accueil">Accueil</a>
   <a href="#services">Services</a>
-  <a href="#tarifs">Tarifs</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <main>
 
-<section id="accueil" class="hero">
+<section id="accueil">
   <h2>Réparation informatique & smartphones</h2>
-  <p>Diagnostic, réparation, installation Windows/Linux, montage PC et récupération de données.</p>
-  <a class="btn" href="#contact">Demander un devis</a>
+  <p>Diagnostic, dépannage, installation Windows/Linux et récupération de données.</p>
 </section>
 
 <section id="services">
   <h2>Services</h2>
   <ul>
-    <li>PC fixes et portables</li>
+    <li>PC & ordinateurs</li>
     <li>Smartphones</li>
-    <li>Tablettes</li>
-    <li>Switch</li>
-    <li>Montage PC Gamer</li>
-    <li>Windows / Linux</li>
-    <li>Virus & nettoyage</li>
-    <li>Récupération de données</li>
+    <li>Nettoyage virus</li>
+    <li>Réinstallation système</li>
   </ul>
-</section>
-
-<section id="tarifs">
-  <h2>Tarifs</h2>
-  <p>Devis gratuit selon la panne et les pièces nécessaires.</p>
 </section>
 
 <section id="contact">
 
-  <h2>Contact</h2>
+  <h2>Demander un devis</h2>
 
   <form id="devisForm">
     <input type="text" id="name" placeholder="Nom et prénom" required>
     <input type="tel" id="phone" placeholder="Téléphone" required>
-    <textarea id="message" placeholder="Décris ton problème" required></textarea>
+    <textarea id="message" placeholder="Votre problème" required></textarea>
     <button type="submit">Envoyer</button>
   </form>
 
-  <div id="successPage" class="hidden">
-    <h2>✅ Devis envoyé</h2>
-    <p>Nous vous recontactons rapidement.</p>
-    <button onclick="goHome()">Revenir à l'accueil</button>
+  <div id="success" class="hidden">
+    <h3>Devis envoyé ✔</h3>
+    <button onclick="goHome()">Retour accueil</button>
   </div>
 
 </section>
 
 </main>
+
+<footer>
+  <p>📞 06 10 40 16 65</p>
+  <p>✉️ contact@nexora.fr</p>
+</footer>
 
 <script src="script.js"></script>
 
