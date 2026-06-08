@@ -1,1 +1,6 @@
-document.getElementById('menuBtn').onclick=()=>document.getElementById('sidebar').classList.toggle('open');
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("active");
+});
