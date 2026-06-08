@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXORA</title>
+  <title>NEXORA - Réparation informatique</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +15,8 @@
 
   <h1>NEXORA</h1>
 
-  <div class="contact-top">
+  <div class="top-contact">
+    <span>📞 06 10 40 16 65</span>
     <a class="call" href="tel:+33610401665">Appeler</a>
   </div>
 </header>
@@ -28,10 +29,12 @@
   <a href="#contact">Contact</a>
 </nav>
 
+<main>
+
 <section id="accueil" class="hero">
   <h2>Réparation informatique & smartphones</h2>
   <p>Diagnostic, réparation, installation Windows/Linux, montage PC et récupération de données.</p>
-  <a href="#contact" class="btn">Demander un devis gratuit</a>
+  <a class="btn" href="#contact">Demander un devis</a>
 </section>
 
 <section id="services">
@@ -40,10 +43,10 @@
     <li>PC fixes et portables</li>
     <li>Smartphones</li>
     <li>Tablettes</li>
-    <li>Switch</li>
+    <li>Nintendo Switch</li>
     <li>Montage PC Gamer</li>
-    <li>Windows / Linux</li>
-    <li>Virus & nettoyage</li>
+    <li>Installation Windows / Linux</li>
+    <li>Suppression de virus</li>
     <li>Récupération de données</li>
   </ul>
 </section>
@@ -54,18 +57,27 @@
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
 
-  <form>
-    <input type="text" placeholder="Nom et prénom" required>
-    <input type="tel" placeholder="Téléphone" required>
-    <textarea placeholder="Explique ton problème"></textarea>
+  <h2>Demander un devis</h2>
+
+  <!-- FORM -->
+  <form id="devisForm">
+    <input type="text" id="name" placeholder="Nom et prénom" required>
+    <input type="tel" id="phone" placeholder="Téléphone" required>
+    <textarea id="message" placeholder="Décris ton problème" required></textarea>
     <button type="submit">Envoyer</button>
   </form>
 
-  <p>📞 06 10 40 16 65</p>
-  <p>✉️ pougeol.trystan83@gmail.com</p>
+  <!-- SUCCESS PAGE -->
+  <div id="successPage" class="hidden">
+    <h2>✅ Devis envoyé avec succès</h2>
+    <p>Nous vous recontactons rapidement.</p>
+    <button onclick="goHome()">Revenir à l'accueil</button>
+  </div>
+
 </section>
+
+</main>
 
 <script src="script.js"></script>
 
