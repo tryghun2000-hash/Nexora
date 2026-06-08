@@ -1,172 +1,44 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0613;
-  color: white;
-}
+window.addEventListener("DOMContentLoaded", () => {
 
-/* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  background: linear-gradient(90deg, #1a0b2e, #2b0a4f);
-  border-bottom: 1px solid #3b1b66;
-  position: sticky;
-  top: 0;
-}
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const sidebar = document.getElementById("sidebar");
 
-h1 {
-  margin: 0;
-  color: #c084fc;
-}
+  function openMenu() {
+    sidebar.classList.add("active");
+  }
 
-.top-contact {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+  function closeMenu() {
+    sidebar.classList.remove("active");
+  }
 
-.top-contact span {
-  color: #c084fc;
-  font-weight: bold;
-}
+  menuBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
 
-.call {
-  background: #7c3aed;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-}
+  document.querySelectorAll("#sidebar a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
 
-/* MENU */
-#menuBtn {
-  font-size: 26px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
+  const form = document.getElementById("devisForm");
+  const successPage = document.getElementById("successPage");
 
-/* SIDEBAR */
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 220px;
-  height: 100%;
-  background: #120826;
-  padding: 20px;
-  transition: 0.3s;
-  border-right: 1px solid #3b1b66;
-}
+  successPage.classList.add("hidden");
 
-#sidebar.active {
-  left: 0;
-}
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-#sidebar h2 {
-  color: #c084fc;
-}
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-#sidebar a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  border-bottom: 1px solid #2a1244;
-}
+    if (!name || !phone || !message) return;
 
-#sidebar a:hover {
-  background: #2b0a4f;
-}
+    form.style.display = "none";
+    successPage.classList.remove("hidden");
+  });
 
-/* HERO */
-.hero {
-  padding: 80px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #1a0b2e, #0b0613);
-}
+});
 
-.hero h2 {
-  color: #c084fc;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: linear-gradient(90deg, #7c3aed, #a855f7);
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-}
-
-/* SECTIONS */
-section {
-  padding: 40px 20px;
-}
-
-h2 {
-  color: #c084fc;
-}
-
-/* LIST */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  padding: 8px 0;
-  border-bottom: 1px solid #2a1244;
-}
-
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-}
-
-input, textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  background: #1a0b2e;
-  color: white;
-  border: 1px solid #3b1b66;
-}
-
-button {
-  padding: 10px;
-  background: linear-gradient(90deg, #7c3aed, #a855f7);
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* SUCCESS */
-.hidden {
-  display: none;
-}
-
-#successPage {
-  margin-top: 20px;
-  padding: 30px;
-  text-align: center;
-  background: #120826;
-  border: 1px solid #3b1b66;
-  border-radius: 10px;
-}
-
-#successPage h2 {
-  color: #c084fc;
+function goHome() {
+  location.reload();
 }
