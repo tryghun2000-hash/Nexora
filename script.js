@@ -1,0 +1,1 @@
+document.getElementById('menuBtn').onclick=()=>document.getElementById('sidebar').classList.toggle('open');
