@@ -4,37 +4,28 @@ window.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("closeBtn");
   const sidebar = document.getElementById("sidebar");
 
-  function openMenu() {
+  menuBtn.addEventListener("click", () => {
     sidebar.classList.add("active");
-  }
+  });
 
-  function closeMenu() {
+  closeBtn.addEventListener("click", () => {
     sidebar.classList.remove("active");
-  }
+  });
 
-  menuBtn.addEventListener("click", openMenu);
-  closeBtn.addEventListener("click", closeMenu);
-
-  document.querySelectorAll("#sidebar a").forEach(link => {
-    link.addEventListener("click", closeMenu);
+  document.querySelectorAll("#sidebar a").forEach(a => {
+    a.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+    });
   });
 
   const form = document.getElementById("devisForm");
-  const successPage = document.getElementById("successPage");
-
-  successPage.classList.add("hidden");
+  const success = document.getElementById("success");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    if (!name || !phone || !message) return;
-
     form.style.display = "none";
-    successPage.classList.remove("hidden");
+    success.classList.remove("hidden");
   });
 
 });
