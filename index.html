@@ -1,71 +1,159 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXORA</title>
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora | L'avenir Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 <body>
 
-<header>
-  <button id="menuBtn">☰</button>
-  <h1>NEXORA</h1>
-</header>
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon"></div>
+            <span class="logo-text">NEXORA</span>
+        </div>
+        <nav>
+            <a href="#" class="active">Accueil</a>
+            <a href="#" id="nav-services">Services</a>
+            <a href="#" id="nav-contact">Contact</a>
+        </nav>
+    </header>
 
-<nav id="sidebar">
-  <button id="closeBtn">←</button>
+    <main class="hero">
+        <div class="hero-bg-glow"></div>
+        <h1>CONCEVOIR L'AVENIR DIGITAL</h1>
+        <p class="subtitle">Des solutions informatiques innovantes, fluides et esthétiques pour votre entreprise et vos équipements.</p>
+        
+        <div class="grid-container">
+            
+            <div class="card" id="btn-devis">
+                <div class="card-icon">
+                    <span class="material-icons">architecture</span>
+                </div>
+                <h3>Demander un Devis</h3>
+                <p>Expliquez votre problème en quelques clics et obtenez une estimation rapide.</p>
+            </div>
 
-  <a href="#accueil">Accueil</a>
-  <a href="#services">Services</a>
-  <a href="#contact">Contact</a>
-</nav>
+            <div class="card" id="btn-services">
+                <div class="card-icon">
+                    <span class="material-icons">code</span>
+                </div>
+                <h3>Nos Services</h3>
+                <p>Découvrez nos prestations : réparation, montage PC gaming et optimisations.</p>
+            </div>
 
-<main>
+            <div class="card" id="btn-infos">
+                <div class="card-icon">
+                    <span class="material-icons">bar_chart</span>
+                </div>
+                <h3>Informations & Contact</h3>
+                <p>Disponibilités, réseaux sociaux, email et ligne directe pour nous joindre.</p>
+            </div>
 
-<section id="accueil">
-  <h2>Réparation informatique & smartphones</h2>
-  <p>Diagnostic, dépannage, installation Windows/Linux et récupération de données.</p>
-</section>
+        </div>
+    </main>
 
-<section id="services">
-  <h2>Services</h2>
-  <ul>
-    <li>PC & ordinateurs</li>
-    <li>Smartphones</li>
-    <li>Nettoyage virus</li>
-    <li>Réinstallation système</li>
-  </ul>
-</section>
+    <div class="modal" id="modal-devis">
+        <div class="modal-content">
+            <span class="close-btn" id="close-devis">&times;</span>
+            <h2>Demande de Devis</h2>
+            <p>Remplissez ce formulaire, nous vous recontactons au plus vite.</p>
+            <form id="form-devis">
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" required placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" required placeholder="Votre prénom">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input type="tel" id="telephone" required placeholder="06 12 34 56 78">
+                </div>
+                <div class="form-group">
+                    <label for="probleme">Description de votre problème / projet</label>
+                    <textarea id="probleme" rows="4" required placeholder="Détaillez votre demande (ex: Écran iPhone cassé, PC qui ne s'allume plus...)"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer la demande</button>
+            </form>
+        </div>
+    </div>
 
-<section id="contact">
+    <div class="modal" id="modal-services">
+        <div class="modal-content">
+            <span class="close-btn" id="close-services">&times;</span>
+            <h2>Nos Prestations</h2>
+            <p class="modal-subtitle">Des services de qualité pour tous vos outils informatiques.</p>
+            
+            <div class="services-list">
+                <div class="service-item">
+                    <span class="material-icons">smartphone</span>
+                    <div>
+                        <h4>Réparation de téléphone</h4>
+                        <p>Remplacement d'écrans, batteries défectueuses, connecteurs de charge sur iOS et Android.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="material-icons">sports_esports</span>
+                    <div>
+                        <h4>Montage PC Gaming</h4>
+                        <p>Sélection de composants sur-mesure selon votre budget et montage soigné avec câble management optimisé.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="material-icons">cleaning_services</span>
+                    <div>
+                        <h4>Nettoyage matériel informatique</h4>
+                        <p>Dépoussiérage complet, remplacement de la pâte thermique (CPU/GPU) pour booster les performances et réduire le bruit.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="material-icons">terminal</span>
+                    <div>
+                        <h4>Nettoyage logiciel & Optimisation</h4>
+                        <p>Suppression des virus/malwares, optimisation du démarrage, réinstallation propre du système (Windows/Mac) et mises à jour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <h2>Demander un devis</h2>
+    <div class="modal" id="modal-infos">
+        <div class="modal-content">
+            <span class="close-btn" id="close-infos">&times;</span>
+            <h2>Informations & Contact</h2>
+            
+            <div class="infos-container">
+                <div class="info-section">
+                    <h4><span class="material-icons">schedule</span> Disponibilités</h4>
+                    <p>Lundi au Vendredi : 09h00 - 19h00</p>
+                    <p>Samedi : 10h00 - 16h00</p>
+                    <p><em>Dimanche : Fermé</em></p>
+                </div>
 
-  <form id="devisForm">
-    <input type="text" id="name" placeholder="Nom et prénom" required>
-    <input type="tel" id="phone" placeholder="Téléphone" required>
-    <textarea id="message" placeholder="Votre problème" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
+                <div class="info-section">
+                    <h4><span class="material-icons">contact_page</span> Coordonnées Directes</h4>
+                    <p><strong>Téléphone :</strong> 06 00 00 00 00</p>
+                    <p><strong>Email :</strong> contact@nexora.fr</p>
+                </div>
 
-  <div id="success" class="hidden">
-    <h3>Devis envoyé ✔</h3>
-    <button onclick="goHome()">Retour accueil</button>
-  </div>
+                <div class="info-section">
+                    <h4><span class="material-icons">public</span> Réseaux Sociaux</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">TikTok</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</section>
-
-</main>
-
-<footer>
-  <p>📞 06 10 40 16 65</p>
-  <p>✉️ contact@nexora.fr</p>
-</footer>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
