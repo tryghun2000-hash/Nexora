@@ -41,4 +41,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function goHome() {
   location.reload();
-}
+
