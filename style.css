@@ -1,44 +1,100 @@
-window.addEventListener("DOMContentLoaded", () => {
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0b0613;
+  color: white;
+}
 
-  const menuBtn = document.getElementById("menuBtn");
-  const closeBtn = document.getElementById("closeBtn");
-  const sidebar = document.getElementById("sidebar");
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #1a0b2e;
+}
 
-  function openMenu() {
-    sidebar.classList.add("active");
-  }
+h1 {
+  color: #c084fc;
+}
 
-  function closeMenu() {
-    sidebar.classList.remove("active");
-  }
+/* MENU */
+#menuBtn, #closeBtn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 
-  menuBtn.addEventListener("click", openMenu);
-  closeBtn.addEventListener("click", closeMenu);
+/* SIDEBAR */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 200px;
+  height: 100%;
+  background: #120826;
+  padding: 20px;
+  transition: 0.3s;
+}
 
-  document.querySelectorAll("#sidebar a").forEach(link => {
-    link.addEventListener("click", closeMenu);
-  });
+#sidebar.active {
+  left: 0;
+}
 
-  const form = document.getElementById("devisForm");
-  const successPage = document.getElementById("successPage");
+#sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
 
-  successPage.classList.add("hidden");
+#sidebar a:hover {
+  background: #2b0a4f;
+}
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+/* SECTIONS */
+section {
+  padding: 40px 20px;
+}
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
+h2 {
+  color: #c084fc;
+}
 
-    if (!name || !phone || !message) return;
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
 
-    form.style.display = "none";
-    successPage.classList.remove("hidden");
-  });
+input, textarea {
+  padding: 10px;
+  background: #1a0b2e;
+  border: 1px solid #3b1b66;
+  color: white;
+}
 
-});
+button {
+  padding: 10px;
+  background: #7c3aed;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 
-function goHome() {
-  location.reload();
+/* SUCCESS */
+.hidden {
+  display: none;
+}
 
+/* FOOTER */
+footer {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #2a1244;
+  color: #aaa;
+}
