@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXORA - Réparation informatique</title>
+  <title>NEXORA</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +22,11 @@
 </header>
 
 <nav id="sidebar">
-  <h2>NEXORA</h2>
+  <div class="sidebar-header">
+    <h2>NEXORA</h2>
+    <button id="closeBtn">←</button>
+  </div>
+
   <a href="#accueil">Accueil</a>
   <a href="#services">Services</a>
   <a href="#tarifs">Tarifs</a>
@@ -43,10 +47,10 @@
     <li>PC fixes et portables</li>
     <li>Smartphones</li>
     <li>Tablettes</li>
-    <li>Nintendo Switch</li>
+    <li>Switch</li>
     <li>Montage PC Gamer</li>
-    <li>Installation Windows / Linux</li>
-    <li>Suppression de virus</li>
+    <li>Windows / Linux</li>
+    <li>Virus & nettoyage</li>
     <li>Récupération de données</li>
   </ul>
 </section>
@@ -58,9 +62,8 @@
 
 <section id="contact">
 
-  <h2>Demander un devis</h2>
+  <h2>Contact</h2>
 
-  <!-- FORM -->
   <form id="devisForm">
     <input type="text" id="name" placeholder="Nom et prénom" required>
     <input type="tel" id="phone" placeholder="Téléphone" required>
@@ -68,9 +71,8 @@
     <button type="submit">Envoyer</button>
   </form>
 
-  <!-- SUCCESS PAGE -->
   <div id="successPage" class="hidden">
-    <h2>✅ Devis envoyé avec succès</h2>
+    <h2>✅ Devis envoyé</h2>
     <p>Nous vous recontactons rapidement.</p>
     <button onclick="goHome()">Revenir à l'accueil</button>
   </div>
