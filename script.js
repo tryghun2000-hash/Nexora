@@ -1,93 +1,93 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Sélection des éléments (Boutons / Cases)
+    // 1. Sélection des boutons / cases cliquables
     const btnDevis = document.getElementById("btn-devis");
     const btnServices = document.getElementById("btn-services");
     const btnInfos = document.getElementById("btn-infos");
     const navServices = document.getElementById("nav-services");
     const navContact = document.getElementById("nav-contact");
 
-    // Sélection des fenêtres Modales
+    // 2. Sélection des fenêtres pop-up (modales)
     const modalDevis = document.getElementById("modal-devis");
     const modalServices = document.getElementById("modal-services");
-    const modal減nfos = document.getElementById("modal-infos");
+    const modalInfos = document.getElementById("modal-infos");
 
-    // Sélection des boutons de fermeture (Croix)
+    // 3. Sélection des petites croix (boutons de fermeture)
     const closeDevis = document.getElementById("close-devis");
     const closeServices = document.getElementById("close-services");
     const closeInfos = document.getElementById("close-infos");
 
-    // --- FONCTIONS D'OUVERTURE / FERMETURE ---
-    function openModal(modal) {
-        modal.classList.add("show");
-        document.body.style.overflow = "hidden"; // Empêche de scroller le fond
-    }
-
-    function closeModal(modal) {
-        modal.classList.remove("show");
-        // Petit délai pour enlever le display flex après la transition d'opacité
+    // --- FONCTIONS POUR OUVRIR ET FERMER ---
+    
+    // Fonction pour ouvrir proprement avec l'effet fluide
+    function ouvrirModale(laModale) {
+        laModale.style.display = "flex"; // On l'affiche d'abord en flex
         setTimeout(() => {
-            if(!modal.classList.contains("show")) {
-                modal.style.display = "none";
+            laModale.classList.add("show"); // Puis on lance l'animation CSS (opacité)
+        }, 10);
+        document.body.style.overflow = "hidden"; // On bloque le scroll de la page de fond
+    }
+
+    // Fonction pour fermer proprement
+    function fermerModale(laModale) {
+        laModale.classList.remove("show"); // On retire l'animation
+        setTimeout(() => {
+            if (!laModale.classList.contains("show")) {
+                laModale.style.display = "none"; // On la cache complètement après l'effet
             }
-        }, 300);
-        document.body.style.overflow = "auto"; // Réactive le scroll
+        }, 300); // 300ms correspond au temps de l'effet en CSS
+        document.body.style.overflow = "auto"; // On réactive le scroll du fond
     }
 
-    // On force l'affichage en flex juste avant d'ajouter la classe 'show' pour la transition CSS
-    function triggerOpen(modal) {
-        modal.style.display = "flex";
-        setTimeout(() => openModal(modal), 10);
-    }
-
-    // --- ECOUTEURS D'EVENEMENTS (CLICS) ---
+    // --- ÉCOUTEURS D'ÉVÉNEMENTS (LES CLICS) ---
     
-    // Ouvrir Devis
-    btnDevis.addEventListener("click", () => triggerOpen(modalDevis));
+    // CLIC : Ouverture de la case Devis
+    if(btnDevis) btnDevis.addEventListener("click", () => ouvrirModale(modalDevis));
     
-    // Ouvrir Services (depuis la case ou la barre de navigation)
-    btnServices.addEventListener("click", () => triggerOpen(modalServices));
-    navServices.addEventListener("click", (e) => { e.preventDefault(); triggerOpen(modalServices); });
+    // CLIC : Ouverture des Services (via la case ou le menu du haut)
+    if(btnServices) btnServices.addEventListener("click", () => ouvrirModale(modalServices));
+    if(navServices) navServices.addEventListener("click", (e) => { e.preventDefault(); ouvrirModale(modalServices); });
     
-    // Ouvrir Infos / Contact (depuis la case ou la barre de navigation)
-    btnInfos.addEventListener("click", () => triggerOpen(modal減nfos));
-    navContact.addEventListener("click", (e) => { e.preventDefault(); triggerOpen(modal減nfos)); });
+    // CLIC : Ouverture des Infos / Contact (via la case ou le menu du haut)
+    if(btnInfos) btnInfos.addEventListener("click", () => ouvrirModale(modalInfos));
+    if(navContact) navContact.addEventListener("click", (e) => { e.preventDefault(); ouvrirModale(modalInfos); });
 
-    // Fermeture via la Croix
-    closeDevis.addEventListener("click", () => closeModal(modalDevis));
-    closeServices.addEventListener("click", () => closeModal(modalServices));
-    closeInfos.addEventListener("click", () => closeModal(modal減nfos));
+    // CLIC : Fermeture avec les petites croix (X)
+    if(closeDevis) closeDevis.addEventListener("click", () => fermerModale(modalDevis));
+    if(closeServices) closeServices.addEventListener("click", () => fermerModale(modalServices));
+    if(closeInfos) closeInfos.addEventListener("click", () => fermerModale(modalInfos));
 
-    // Fermeture si l'utilisateur clique en dehors de la boîte blanche (sur le fond sombre)
+    // CLIC : Fermer si le client clique n'importe où "à côté" de la fenêtre (sur le fond sombre)
     window.addEventListener("click", (e) => {
-        if (e.target === modalDevis) closeModal(modalDevis);
-        if (e.target === modalServices) closeModal(modalServices);
-        if (e.target === modal減nfos) closeModal(modal減nfos);
+        if (e.target === modalDevis) fermerModale(modalDevis);
+        if (e.target === modalServices) fermerModale(modalServices);
+        if (e.target === modalInfos) fermerModale(modalInfos);
     });
 
-    // --- GESTION DU FORMULAIRE DE DEVIS ---
+    // --- GESTION ENVOI DU FORMULAIRE DE DEVIS ---
     const formDevis = document.getElementById("form-devis");
-    formDevis.addEventListener("submit", (e) => {
-        e.preventDefault(); // Empêche le rechargement de la page
+    if(formDevis) {
+        formDevis.addEventListener("submit", (e) => {
+            e.preventDefault(); // Empêche la page de se recharger
 
-        // Récupération des données saisies par le client
-        const donnéesDevis = {
-            nom: document.getElementById("nom").value,
-            prenom: document.getElementById("prenom").value,
-            telephone: document.getElementById("telephone").value,
-            probleme: document.getElementById("probleme").value
-        };
+            // On récupère ce que le client a écrit
+            const donnéesClient = {
+                nom: document.getElementById("nom").value,
+                prenom: document.getElementById("prenom").value,
+                telephone: document.getElementById("telephone").value,
+                probleme: document.getElementById("probleme").value
+            };
 
-        // Message de confirmation à l'utilisateur
-        alert(`Merci ${donnéesDevis.prenom} ! Votre demande de devis a bien été prise en compte. Nous vous recontacterons au ${donnéesDevis.telephone}.`);
-        
-        // Réinitialisation et fermeture du formulaire
-        formDevis.reset();
-        closeModal(modalDevis);
-    });
+            // Alerte de confirmation sympa
+            alert(`Merci ${donnéesClient.prenom} ! Nexora a bien reçu votre demande. Nous vous rappellerons au ${donnéesClient.telephone}.`);
+            
+            // On vide le formulaire et on ferme la fenêtre
+            formDevis.reset();
+            fermerModale(modalDevis);
+        });
+    }
 
-    // --- EFFET VISUEL MOUSE-MOVE SOURIS SUR LES CASES ---
-    // Ajoute un effet de lumière qui suit la souris sur les tuiles (comme sur les sites modernes)
+    // --- EFFET DESIGN : Lumière interactive qui suit la souris sur les cases ---
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
