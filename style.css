@@ -22,37 +22,33 @@ h1 {
   color: #c084fc;
 }
 
+.top-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-contact span {
+  color: #c084fc;
+  font-weight: bold;
+}
+
+.call {
+  background: #7c3aed;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* MENU */
 #menuBtn {
   font-size: 26px;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
-}
-
-/* CONTACT TOP */
-.contact-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.phone {
-  color: #c084fc;
-  font-weight: bold;
-}
-
-.call {
-  color: white;
-  text-decoration: none;
-  background: #7c3aed;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.call:hover {
-  background: #a855f7;
 }
 
 /* SIDEBAR */
@@ -65,7 +61,6 @@ h1 {
   background: #120826;
   padding: 20px;
   transition: 0.3s;
-  z-index: 1000;
   border-right: 1px solid #3b1b66;
 }
 
@@ -111,10 +106,6 @@ h1 {
   border-radius: 8px;
 }
 
-.btn:hover {
-  opacity: 0.9;
-}
-
 /* SECTIONS */
 section {
   padding: 40px 20px;
@@ -146,7 +137,7 @@ form {
 input, textarea {
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   background: #1a0b2e;
   color: white;
   border: 1px solid #3b1b66;
@@ -156,12 +147,26 @@ button {
   padding: 10px;
   background: linear-gradient(90deg, #7c3aed, #a855f7);
   border: none;
-  font-weight: bold;
-  cursor: pointer;
   color: white;
+  font-weight: bold;
   border-radius: 6px;
+  cursor: pointer;
 }
 
-button:hover {
-  opacity: 0.9;
+/* SUCCESS */
+.hidden {
+  display: none;
+}
+
+#successPage {
+  margin-top: 20px;
+  padding: 30px;
+  text-align: center;
+  background: #120826;
+  border: 1px solid #3b1b66;
+  border-radius: 10px;
+}
+
+#successPage h2 {
+  color: #c084fc;
 }
